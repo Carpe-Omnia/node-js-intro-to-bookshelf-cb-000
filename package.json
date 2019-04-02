@@ -9,6 +9,13 @@
   "scripts": {
     "test": "export NODE_ENV=testing; mocha -R mocha-multi --reporter-options spec=-,json=.results.json"
   },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bookshelf": "^0.13.3",
+    "express": "^4.16.3",
+    "knex": "^0.10.0",
+    "pg": "^7.4.1"
+  },
   "devDependencies": {
     "chai": "^4.1.2",
     "mocha": "^2.4.5",
