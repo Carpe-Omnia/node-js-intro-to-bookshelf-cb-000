@@ -5,19 +5,16 @@ exports.up = function(knex, Promise) {
     tbl.string('email');
     tbl.string('username');
     tbl.string('name');
-    tbl.timestamps() ;
   }).createTable('posts', table => {
     table.increments('id').primary();
     table.string('body');
     table.string('title');
     table.integer('user_id').references('users.id');
-    table.timestamps();
   }).createTable('comments', table => {
     table.increments('id').primary();
     table.string('post_id').references('posts.id');
     table.string('user_id').references('users.id');
     table.string('body');
-    table.timestamps();
   });
 };
 
