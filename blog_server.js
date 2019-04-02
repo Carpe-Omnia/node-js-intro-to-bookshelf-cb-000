@@ -23,7 +23,7 @@ var User = bookshelf.model.extend({
   comments: function(){
     return this.hasMany(Comments);
   }
-}) 
+})
 var Posts = bookshelf.Model.extend({
   tableName: 'posts',
   user_id: function(){
@@ -66,6 +66,6 @@ exports.up = (justBackend) => {
       console.log('Listening on port 3000...');
     });
 };
-exports.User = User ; 
-exports.Posts = Posts ; 
+exports.User = User ;
+exports.Posts = Posts ;
 exports.Comments = Comments ;
