@@ -66,6 +66,7 @@ exports.up = (justBackend) => {
       console.log('Listening on port 3000...');
     });
 };
+
 exports.User = User ;
 exports.Posts = Posts ;
 exports.Comments = Comments ;
