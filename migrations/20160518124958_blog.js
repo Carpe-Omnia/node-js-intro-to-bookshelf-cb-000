@@ -10,7 +10,7 @@ exports.up = function(knex, Promise) {
     table.increments('id').primary();
     table.string('body');
     table.string('title');
-    table.integer('author').references('users.id');
+    table.integer('user_id').references('users.id');
     table.timestamps();
   }).createTable('comments', table => {
     table.increments('id').primary();
