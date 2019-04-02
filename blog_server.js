@@ -15,8 +15,33 @@ const knex = require('knex')(config[process.env.NODE_ENV]);
 const bookshelf = require('bookshelf')(knex);
 
 // This is a good place to start!
-
-
+var User = bookshelf.model.extend({
+  tableName: 'users',
+  posts: function(){
+    return this.hasMany(Posts);
+  }
+  comments: function(){
+    return this.hasMany(Comments);
+  }
+}) 
+var Posts = bookshelf.Model.extend({
+  tableName: 'posts',
+  user_id: function(){
+    return this.belongsTo(User, 'user_id');
+  }
+  comments: function(){
+    return this.hasMany(Comments);
+  }
+})
+var Comments = bookshelf.Model.extend({
+  tableName: 'comments',
+  user_id: function(){
+    return this.belongsTo(User, 'user_id')
+  }
+  post_id: function(){
+    return this.belongsTo(Post, 'post_id')
+  }
+})
 
 
 // Exports for Server hoisting.
@@ -41,3 +66,6 @@ exports.up = (justBackend) => {
       console.log('Listening on port 3000...');
     });
 };
+exports.User = User ; 
+exports.Posts = Posts ; 
+exports.Comments = Comments ;
